@@ -24,7 +24,11 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+def home(request):
+    return JsonResponse({"message": "API is live!"})
+
 urlpatterns = [
+     path('', home),  # <-- root endpoint
     path('admin/', admin.site.urls),
      path('teacher/', include('teachers.urls')),
      path('course/',include('courses.urls')),
